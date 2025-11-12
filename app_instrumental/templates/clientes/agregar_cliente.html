@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Agregar Cliente</h3>
+<form method="post">
+  {% csrf_token %}
+  <label>Nombre</label><input name="nombre">
+  <label>Email</label><input type="email" name="email">
+  <label>Teléfono</label><input name="telefono">
+  <label>Dirección</label><input name="direccion">
+  <label>Ciudad</label><input name="ciudad">
+  <button type="submit">Guardar</button>
+</form>
+{% endblock %}

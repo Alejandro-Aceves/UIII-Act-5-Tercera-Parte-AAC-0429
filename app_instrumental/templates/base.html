@@ -1,0 +1,18 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sistema de Gestión Personal y Ventas</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  </head>
+  <body>
+    {% include 'header.html' %}
+    {% include 'navbar.html' %}
+    <main>
+      {% block content %}{% endblock %}
+    </main>
+    {% include 'footer.html' %}
+  </body>
+</html>

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Actualizar Cliente</h3>
+<form method="post" action="{% url 'actualizar_cliente' cliente.id_cliente %}">
+  {% csrf_token %}
+  <label>Nombre</label><input name="nombre" value="{{ cliente.nombre }}">
+  <label>Email</label><input type="email" name="email" value="{{ cliente.email }}">
+  <label>Teléfono</label><input name="telefono" value="{{ cliente.telefono }}">
+  <label>Dirección</label><input name="direccion" value="{{ cliente.direccion }}">
+  <label>Ciudad</label><input name="ciudad" value="{{ cliente.ciudad }}">
+  <button type="submit">Guardar Cambios</button>
+  <a href="{% url 'ver_clientes' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

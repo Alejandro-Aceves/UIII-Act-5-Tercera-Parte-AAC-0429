@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Lista de Ventas</h3>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th><th>Fecha</th><th>Cliente</th><th>Empleado</th><th>Descuento</th><th>No. Caja</th><th>Total</th><th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for v in ventas %}
+    <tr>
+      <td>{{ v.id_venta }}</td>
+      <td>{{ v.fecha_venta }}</td>
+      <td>{{ v.id_cliente.nombre }}</td>
+      <td>{{ v.id_empleado.nombre }}</td>
+      <td>{{ v.descuento_porcentaje }}%</td>
+      <td>#{{ v.numero_caja }}</td>
+      <td>${{ v.total }}</td>
+      <td>
+        <a href="{% url 'actualizar_venta_personal' v.id_venta %}" class="btn">Editar</a>
+        <a href="{% url 'borrar_venta_personal' v.id_venta %}" class="btn btn-danger">Borrar</a>
+      </td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="7" class="text-center">No hay ventas registradas.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+<a href="{% url 'agregar_venta_personal' %}" class="btn">Agregar Nueva Venta</a>
+{% endblock %}

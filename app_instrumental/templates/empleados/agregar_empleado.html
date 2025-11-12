@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Agregar Empleado</h3>
+<form method="post">
+  {% csrf_token %}
+  <label>Nombre</label><input name="nombre">
+  <label>Puesto</label><input name="puesto">
+  <label>Salario</label><input type="number" step="0.01" name="salario">
+  <label>NSS</label><input name="nss">
+  <label>Edad</label><input type="number" name="edad">
+  <button type="submit">Guardar</button>
+</form>
+{% endblock %}
